@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 5000;
 
@@ -6,6 +7,7 @@ const port = 5000;
 // Add body parsing middleware
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+app.use(cors());
 
 app.use((req, res, next)=>{
     console.log(`${req.method} request for '${req.url}' - ${JSON.stringify(req.body)}`);
